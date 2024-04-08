@@ -1,92 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: "#da373d",
-            },
+
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-    <link rel="stylesheet" href="/style.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Frontend Mentor | Calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet" />
+  <title>Frontend Mentor | Calculator app</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
-  </head>
-  <body>
-    <div id="estilo1">
-    <section class=" m-[10px]">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="estilo1">
+    <section class="mx-auto max-w-[400px] m-[10px] mt-10">
       <div class="flex item-center items-end">
         <h1 class="font-bold text-4xl text-white">calc</h1>
         <h4 class="ml-[100px] text-white">THEME</h4>
         <div class="wrapper">
-          <span  class=" text-white">1 2 3</span>
-          <input type="range" name="points" onchange="filterme(this.value);" min="1" step="1" id="custom-toggle" class="tgl-def w-28 h-16"  max="3" value="2">
+          <span class=" text-white">1 2 3</span>
+          <input type="range" name="points" onchange="filterme(this.value);" min="1" step="1" id="custom-toggle"
+            class="tgl-def w-28 h-16" max="3" value="2">
         </div>
       </div>
-        <!-- pantalla de la calculadora -->
-        <div class="mb-4">
-          <form name="calculator">
-          <input type="textfield" name="ans" value="" autocomplete="off" readonly id="display " class="w-full p-6 text-3xl font-bold text-white bg-slate-950/50 rounded-lg " readonly>
+      <!-- pantalla de la calculadora -->
+      <div class="my-4">
+        <form name="calculator">
+          <input type="textfield" name="ans" value="" autocomplete="off" readonly id="display "
+            class="w-full p-6 text-3xl font-bold text-white bg-slate-950/50 rounded-lg " readonly>
       </div>
       <div class="bg-slate-900/50 p-[20px] rounded-xl	">
-        <div class=" grid grid-cols-4 flex-wrap gap-1  " >
+        <div class=" grid grid-cols-4 flex-wrap gap-1  ">
           <!-- numeros de la calculadora ( usar greed) -->
-          <input type="button" class="grid-rows-1 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4 " value="7" onclick="document.calculator.ans.value+='7'"></input>
-          <input type="button" class="grid-rows-5 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"  value="8" onclick="document.calculator.ans.value+='8'"></input>
-          <input type="button" class="grid-rows-9 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="8" onclick="document.calculator.ans.value+='9'"></input>
-          <input type="reset" class="grid-rows-13 bg-indigo-300/50 text-white font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-indigo-900/50 border-b-4 " value="DEL" onclick="document.calculator.ans.value+='DEL'"></input>
-          <input type="button" class="grid-rows-2 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="4" onclick="document.calculator.ans.value+='4'"></input>
-          <input type="button" class="grid-rows-6 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="5" onclick="document.calculator.ans.value+='5'"></input>
-          <input type="button" class="grid-rows-10 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="6" onclick="document.calculator.ans.value+='6'"></input>
-          <input type="button" class="grid-rows-3 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="+" onclick="document.calculator.ans.value+='+'" ></input>
-          <input type="button" class="grid-rows-14 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="1" onclick="document.calculator.ans.value+='1'"></input>
-          <input type="button" class="grid-rows-7 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="2" onclick="document.calculator.ans.value+='2'"></input>
-          <input type="button" class="grid-rows-11 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="3" onclick="document.calculator.ans.value+='3'"></input>
-          <input type="button" class="grid-rows-15 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="-" onclick="document.calculator.ans.value+='-'"></input>
-          <input type="button" class="grid-rows-4 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="." onclick="document.calculator.ans.value+='.'"></input>
-          <input type="button" class="grid-rows-8 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="0" onclick="document.calculator.ans.value+='0'"></input>
-          <input type="button" class="grid-rows-12 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4" value="/" onclick="document.calculator.ans.value+='/'"></input>
-          <input type="button" class="grid-rows-16 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4 " value="x" onclick="document.calculator.ans.value+='*'"></input>
+          <input type="button"
+            class="grid-rows-1 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4 "
+            value="7" onclick="document.calculator.ans.value+='7'"></input>
+          <input type="button"
+            class="grid-rows-5 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="8" onclick="document.calculator.ans.value+='8'"></input>
+          <input type="button"
+            class="grid-rows-9 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="8" onclick="document.calculator.ans.value+='9'"></input>
+          <input type="reset"
+            class="grid-rows-13 bg-indigo-300/50 text-white font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-indigo-900/50 border-b-4 "
+            value="DEL" onclick="document.calculator.ans.value+='DEL'"></input>
+          <input type="button"
+            class="grid-rows-2 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="4" onclick="document.calculator.ans.value+='4'"></input>
+          <input type="button"
+            class="grid-rows-6 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="5" onclick="document.calculator.ans.value+='5'"></input>
+          <input type="button"
+            class="grid-rows-10 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="6" onclick="document.calculator.ans.value+='6'"></input>
+          <input type="button"
+            class="grid-rows-3 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="+" onclick="document.calculator.ans.value+='+'"></input>
+          <input type="button"
+            class="grid-rows-14 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="1" onclick="document.calculator.ans.value+='1'"></input>
+          <input type="button"
+            class="grid-rows-7 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="2" onclick="document.calculator.ans.value+='2'"></input>
+          <input type="button"
+            class="grid-rows-11 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="3" onclick="document.calculator.ans.value+='3'"></input>
+          <input type="button"
+            class="grid-rows-15 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="-" onclick="document.calculator.ans.value+='-'"></input>
+          <input type="button"
+            class="grid-rows-4 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="." onclick="document.calculator.ans.value+='.'"></input>
+          <input type="button"
+            class="grid-rows-8 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="0" onclick="document.calculator.ans.value+='0'"></input>
+          <input type="button"
+            class="grid-rows-12 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4"
+            value="/" onclick="document.calculator.ans.value+='/'"></input>
+          <input type="button"
+            class="grid-rows-16 bg-white text-gray-700 font-bold text-3xl rounded-lg m-[5px] p-[10px] pt-[15px] border-b-neutral-400 border-b-4 "
+            value="x" onclick="document.calculator.ans.value+='*'"></input>
 
         </div>
         <div class="flex justify-items-center mt-[15px] ">
-          <input type="reset" class="bg-indigo-300/50 rounded-md text-3xl text-white w-40 h-16 border-b-indigo-900/50 border-b-4 mr-[text-2xl] mr-[20px]" value="RESET" onclick="document.calculator.ans.value+='RESET'" ></input>
-          <input type="button" class ="bg-red-500 rounded-md text-3xl text-white w-40 h-16  border-b-red-950/50 border-b-4" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)">  </input>
-        </form>
+          <input type="reset"
+            class="bg-indigo-300/50 rounded-md text-3xl text-white w-40 h-16 border-b-indigo-900/50 border-b-4 mr-[text-2xl] mr-[20px]"
+            value="RESET" onclick="document.calculator.ans.value+='RESET'"></input>
+          <input type="button"
+            class="bg-red-500 rounded-md text-3xl text-white w-40 h-16  border-b-red-950/50 border-b-4" value="="
+            onclick="document.calculator.ans.value=eval(document.calculator.ans.value)"> </input>
+          </form>
         </div>
       </div>
     </section>
   </div>
-  
